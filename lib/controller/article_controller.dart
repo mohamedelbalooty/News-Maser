@@ -18,10 +18,10 @@ class ModelController {
           Article.fromJson(article),
         );
       }
+      return _articles;
     } else {
       throw Exception('Server Exception');
     }
-    return _articles;
   }
 
   Future<List<Article>> getTopHeadlinesByCategory(String category) async {

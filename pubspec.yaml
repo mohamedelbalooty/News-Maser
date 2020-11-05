@@ -18,6 +18,8 @@ dependencies:
   http: ^0.12.2
   connectivity: ^2.0.1
   toast: ^0.1.5
+  provider: ^4.3.2+2
+  cached_network_image: ^2.3.3
 
 dev_dependencies:
   flutter_test:
@@ -34,7 +36,7 @@ flutter:
   fonts:
     - family: Tajawal
       fonts:
-       - asset: assets/fonts/Tajawal-Bold.ttf
+       - asset: assets/fonts/Tajawal-Medium.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
