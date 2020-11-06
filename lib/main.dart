@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsmaser/constants.dart';
 import 'package:newsmaser/view/topHeadlines_view.dart';
 import 'view/business_view.dart';
 import 'view/entertainment_view.dart';
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'نيوز مصر',
       theme: ThemeData(
+        primaryColor: KMainColor,
+        primarySwatch: KMainColor,
         fontFamily: 'Tajawal',
       ),
       initialRoute: HomeView.id,

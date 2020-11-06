@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:newsmaser/view/topHeadlines_view.dart';
 import '../../constants.dart';
 
 Widget customAppBar(context, String title) {
   return AppBar(
-    elevation: 12.0,
     backgroundColor: KWhiteColor,
     automaticallyImplyLeading: false,
+    leading: IconButton(
+      icon: Icon(
+        Icons.refresh,
+        size: 26.0,
+        color: KWhiteColor,
+      ),
+      onPressed: () {
+        Navigator.pushReplacementNamed(context, TopHeadlinesView.id);
+      },
+    ),
     actions: [
       IconButton(
         icon: Icon(
@@ -16,7 +26,7 @@ Widget customAppBar(context, String title) {
         onPressed: () {
           Navigator.pop(context);
         },
-      )
+      ),
     ],
     flexibleSpace: Container(
       decoration: BoxDecoration(
