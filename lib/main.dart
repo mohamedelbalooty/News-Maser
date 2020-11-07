@@ -8,6 +8,7 @@ import 'view/home_view.dart';
 import 'view/science_view.dart';
 import 'view/sports_view.dart';
 import 'view/tech_view.dart';
+import 'widgets/shared_widgets/custom_newsScreen.dart';
 
 void main() => runApp(MyApp());
 

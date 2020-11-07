@@ -5,6 +5,7 @@ import 'package:newsmaser/core/errors.dart';
 import 'package:newsmaser/model/article_model.dart';
 import 'package:newsmaser/widgets/shared_widgets/custom_appBar.dart';
 import 'package:newsmaser/widgets/shared_widgets/custom_newsItem.dart';
+import 'package:newsmaser/widgets/shared_widgets/custom_newsScreen.dart';
 import 'package:toast/toast.dart';
 
 class TopHeadlinesView extends StatelessWidget {
@@ -47,11 +48,26 @@ class TopHeadlinesView extends StatelessWidget {
                         return ListView.builder(
                           itemCount: _articles.length,
                           itemBuilder: (context, index) {
-                            return customNewsItem(height, width,
-                                newspaperName: _articles[index].source.name,
-                                newsDate: _articles[index].newsPublishedAt,
-                                newsTitle: _articles[index].newsTitle,
-                                newsImage: _articles[index].newsUrlToImage);
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CustomNewsScreen(
+                                      articleIndex: index,
+                                      numberArticles: _articles.length,
+                                      article: _articles[index],
+                                    ),
+                                  ),
+                                );
+                                // Navigator.pushNamed(context, CustomNewsScreen.id, arguments: _articles[index]);
+                              },
+                              child: customNewsItem(height, width,
+                                  newspaperName: _articles[index].source.name,
+                                  newsDate: _articles[index].newsPublishedAt,
+                                  newsTitle: _articles[index].newsTitle,
+                                  newsImage: _articles[index].newsUrlToImage),
+                            );
                           },
                         );
                       } on PlatformException catch (e) {
