@@ -8,23 +8,23 @@ Widget customAppBar(context, String title) {
     automaticallyImplyLeading: false,
     leading: IconButton(
       icon: Icon(
-        Icons.refresh,
+        Icons.arrow_back,
         size: 26.0,
         color: KWhiteColor,
       ),
       onPressed: () {
-        Navigator.pushReplacementNamed(context, TopHeadlinesView.id);
+        Navigator.pop(context);
       },
     ),
     actions: [
       IconButton(
         icon: Icon(
-          Icons.arrow_forward,
+          Icons.refresh,
           size: 26.0,
           color: KWhiteColor,
         ),
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.pushReplacementNamed(context, TopHeadlinesView.id);
         },
       ),
     ],

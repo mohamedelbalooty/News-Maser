@@ -55,8 +55,7 @@ class TopHeadlinesView extends StatelessWidget {
                                   MaterialPageRoute(
                                     builder: (context) => CustomNewsScreen(
                                       articleIndex: index,
-                                      numberArticles: _articles.length,
-                                      article: _articles[index],
+                                      articles: _articles,
                                     ),
                                   ),
                                 );

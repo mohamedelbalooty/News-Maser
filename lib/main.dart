@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'نيوز مصر',
       theme: ThemeData(
         primaryColor: KMainColor,
-        primarySwatch: KMainColor,
+        primarySwatch: Colors.pink,
         fontFamily: 'Tajawal',
       ),
       initialRoute: HomeView.id,

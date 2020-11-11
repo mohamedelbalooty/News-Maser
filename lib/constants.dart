@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-const Color KMainColor = Colors.pink;
+const Color KMainColor = Color(0xFFd44e68);
 const Color KBlackColor = Colors.black;
 const Color KWhiteColor = Colors.white;
 

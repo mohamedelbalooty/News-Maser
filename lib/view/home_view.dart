@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:newsmaser/view/business_view.dart';
-import 'package:newsmaser/view/entertainment_view.dart';
-import 'package:newsmaser/view/health_view.dart';
-import 'package:newsmaser/view/sports_view.dart';
+import 'business_view.dart';
+import 'entertainment_view.dart';
+import 'health_view.dart';
+import 'sports_view.dart';
 import 'science_view.dart';
 import 'tech_view.dart';
 import 'package:newsmaser/widgets/home_view_widgets/home_view_appBar.dart';
