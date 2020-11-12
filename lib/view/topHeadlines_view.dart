@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:newsmaser/controller/article_controller.dart';
-import 'package:newsmaser/core/errors.dart';
+import 'package:newsmaser/core/server_errors.dart';
 import 'package:newsmaser/model/article_model.dart';
 import 'package:newsmaser/widgets/shared_widgets/custom_appBar.dart';
 import 'package:newsmaser/widgets/shared_widgets/custom_newsItem.dart';
@@ -22,7 +22,7 @@ class TopHeadlinesView extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: customAppBar(context, 'أحدث الاخبار'),
+        appBar: customAppBar(context, 'أحدث الاخبار', id),
         body: FutureBuilder<List<Article>>(
           future: _modelController.getTopHeadlinesByCountry(),
           // ignore: missing_return
@@ -59,9 +59,8 @@ class TopHeadlinesView extends StatelessWidget {
                                     ),
                                   ),
                                 );
-                                // Navigator.pushNamed(context, CustomNewsScreen.id, arguments: _articles[index]);
                               },
-                              child: customNewsItem(height, width,
+                              child: customNewsItem(height, width, isPortrait,
                                   newspaperName: _articles[index].source.name,
                                   newsDate: _articles[index].newsPublishedAt,
                                   newsTitle: _articles[index].newsTitle,

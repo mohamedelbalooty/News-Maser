@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsmaser/view/topHeadlines_view.dart';
 import '../../constants.dart';
 
-Widget customAppBar(context, String title) {
+Widget customAppBar(context, String title, String screen) {
   return AppBar(
     backgroundColor: KWhiteColor,
     automaticallyImplyLeading: false,
@@ -24,7 +24,7 @@ Widget customAppBar(context, String title) {
           color: KWhiteColor,
         ),
         onPressed: () {
-          Navigator.pushReplacementNamed(context, TopHeadlinesView.id);
+          Navigator.pushReplacementNamed(context, screen);
         },
       ),
     ],

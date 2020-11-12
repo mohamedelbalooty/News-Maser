@@ -5,6 +5,7 @@ import 'view/business_view.dart';
 import 'view/entertainment_view.dart';
 import 'view/health_view.dart';
 import 'view/home_view.dart';
+import 'view/newsUrl_view.dart';
 import 'view/science_view.dart';
 import 'view/sports_view.dart';
 import 'view/tech_view.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         ScienceView.id: (context) => ScienceView(),
         SportsView.id: (context) => SportsView(),
         TechView.id: (context) => TechView(),
+        // NewsUrlView.id: (context) => NewsUrlView(),
       },
     );
   }

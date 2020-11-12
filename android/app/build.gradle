@@ -52,6 +52,10 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    defaultConfig {
+        // Required by the Flutter WebView plugin.
+        minSdkVersion 19
+    }
 }
 
 flutter {
