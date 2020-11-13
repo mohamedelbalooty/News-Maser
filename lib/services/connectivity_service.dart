@@ -26,6 +26,6 @@ checkInternetConnectivity(context, String screen) async {
   if (result == ConnectivityResult.none) {
     _showDialog('No internet', "You're not connected to a network");
   } else {
-    Navigator.pushNamed(context, screen);
+    Navigator.pushReplacementNamed(context, screen);
   }
 }

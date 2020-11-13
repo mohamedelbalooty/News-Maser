@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:newsmaser/view/topHeadlines_view.dart';
+import 'package:flutter/services.dart';
+import 'package:newsmaser/controller/article_controller.dart';
+import 'package:newsmaser/provider/modal_hud.dart';
+import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
 import '../../constants.dart';
 
-Widget customAppBar(context, String title, String screen) {
+Widget customAppBar(
+    BuildContext context, String title, ModelController modelController, String category) {
   return AppBar(
     backgroundColor: KWhiteColor,
-    automaticallyImplyLeading: false,
-    leading: IconButton(
-      icon: Icon(
-        Icons.arrow_back,
-        size: 26.0,
-        color: KWhiteColor,
-      ),
-      onPressed: () {
-        Navigator.pop(context);
-      },
-    ),
+    automaticallyImplyLeading: true,
     actions: [
       IconButton(
         icon: Icon(
@@ -23,8 +18,18 @@ Widget customAppBar(context, String title, String screen) {
           size: 26.0,
           color: KWhiteColor,
         ),
-        onPressed: () {
-          Navigator.pushReplacementNamed(context, screen);
+        tooltip: 'اعادة تحميل',
+        onPressed: () async {
+          final ModalHud modalHud =
+              Provider.of<ModalHud>(context, listen: false);
+          modalHud.isLoadingChanging(true);
+          try {
+            await modelController.getTopHeadlinesByCategory(category);
+            modalHud.isLoadingChanging(false);
+          } on PlatformException catch (exception) {
+            Toast.show(exception.message, context,
+                duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+          }
         },
       ),
     ],

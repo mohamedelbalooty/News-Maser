@@ -6,8 +6,8 @@ import '../../constants.dart';
 Widget homeViewTopHeadlineCategory(
     context, bool isPortrait, double height, double width) {
   return InkWell(
-    onTap: () async {
-      checkInternetConnectivity(context, TopHeadlinesView.id);
+    onTap: () {
+      Navigator.pushNamed(context, TopHeadlinesView.id);
     },
     child: Container(
       height: isPortrait ? height * 0.25 : width / 4,
