@@ -9,10 +9,14 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    bool isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
     return Scaffold(
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
+        height: height,
+        width: width,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: ExactAssetImage('assets/images/photos/background.jpg'),
@@ -26,7 +30,7 @@ class SplashView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.35,
+                height: isPortrait ? height * 0.35 : height * 0.2,
               ),
               Shimmer.fromColors(
                 period: Duration(milliseconds: 1500),
@@ -50,36 +54,39 @@ class SplashView extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: isPortrait ? height * 0.3 : height * 0.2,
               ),
-              InkWell(
-                onTap: () async {
-                  checkInternetConnectivity(context, HomeView.id);
-                },
-                child: Container(
-                  height: 50.0,
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  decoration: BoxDecoration(
-                    color: KWhiteColor,
-                    borderRadius: BorderRadius.circular(25.0),
-                    border: Border.all(
-                      color: KMainColor,
-                      width: 2.5,
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'أبدأ',
-                      style: TextStyle(
-                        color: KMainColor,
-                        fontSize: 24.0,
-                        height: 1.2,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              _getStartedButton(context, width),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+  Widget _getStartedButton(BuildContext context, double width){
+    return InkWell(
+      onTap: () async {
+        checkInternetConnectivity(context, HomeView.id);
+      },
+      child: Container(
+        height: 50.0,
+        width: width * 0.5,
+        decoration: BoxDecoration(
+          color: KWhiteColor,
+          borderRadius: BorderRadius.circular(25.0),
+          border: Border.all(
+            color: KMainColor,
+            width: 2.5,
+          ),
+        ),
+        child: Center(
+          child: Text(
+            'أبدأ',
+            style: TextStyle(
+              color: KMainColor,
+              fontSize: 24.0,
+              height: 1.2,
+            ),
           ),
         ),
       ),

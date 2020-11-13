@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newsmaser/services/connectivity_service.dart';
 import 'package:newsmaser/view/topHeadlines_view.dart';
 import '../../constants.dart';
 
