@@ -7,8 +7,8 @@ checkInternetConnectivity(context, String screen) async {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(title),
-          content: Text(text),
+          title: Text(title, textDirection: TextDirection.rtl,),
+          content: Text(text, textDirection: TextDirection.rtl,),
           actions: <Widget>[
             FlatButton(
               child: Text('Ok'),
@@ -24,7 +24,7 @@ checkInternetConnectivity(context, String screen) async {
 
   ConnectivityResult result = await Connectivity().checkConnectivity();
   if (result == ConnectivityResult.none) {
-    _showDialog('No internet', "You're not connected to a network");
+    _showDialog('لا يوجد انترنت', "حاول الاتصال بالانترنت");
   } else {
     Navigator.pushReplacementNamed(context, screen);
   }
